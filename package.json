@@ -1,0 +1,30 @@
+{
+  "name": "auth-module-lib",
+  "private": false,
+  "version": "1.0.1",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/auth-module-lib.umd.js",
+  "module": "./dist/auth-module-lib.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/auth-module-lib.es.js",
+      "require": "./dist/auth-module-lib.umd.js"
+    }
+  },
+  "scripts": {
+    "start": "yarn vite --config config/vite.config.ts",
+    "build": "yarn run prepack yarn vite build --config config/vite.config.ts",
+    "link": "yarn link && yarn link auth-module-lib",
+    "unlink": "unlink auth-module-lib && yarn -g rm auth-module-lib",
+    "localTest": "yarn run link && yarn run start"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  }
+}
